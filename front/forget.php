@@ -11,7 +11,16 @@
       <td><span id="result"></span></td>
     </tr>
     <tr>
-      <td><button onclick="findpw()">尋找</button></td>
+      <td><button onclick="findPw()">尋找</button></td>
     </tr>
   </table>
 </fieldset>
+
+<script>
+  function findPw(){
+    let email=$("#email").val();
+    $.post("api/forget.php",{email},function(res){
+      $("#result").html(res);
+    })
+  }
+</script>
