@@ -33,8 +33,23 @@ function nav(type){
 
 function getTitle(type){
   $.get("api/get_title.php",{type},function(titles){
-    $(".titles").html(titles);
-  })
+    let tt=JSON.parse(titles)
+        //console.log(tt)
+        $(".titles").html("")
+        tt.forEach(function(value,idx){
+            let a=document.createElement('a');
+            let text=document.createTextNode(value.title);
+            a.setAttribute('href',`javascript:getNews(${value.id})`)
+            a.setAttribute('style',"display:block")
+            a.appendChild(text)
+            //let str=`<a href='javascript:getNews(${value.id})' style='display:block'>${value.title}</a>`;
+            console.log(a,text)
+            $(".titles").append(a)
+        })
+      
+        //$(".titles").html(tt[0].title)
+        
+    })
 }
 function getNews(id){
     $.get("api/get_news.php",{id},function(news){
