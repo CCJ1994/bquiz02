@@ -48,11 +48,11 @@
           <div class="">
           <?php
         $do=(isset($_GET['do']))?$_GET['do']:'main';
-        $file="./front/".$do.".php";
+        $file="./backend/".$do.".php";
         if(file_exists($file)){
           include_once $file;
         }else{
-          include_once "front/main.php";
+          include_once "backend/main.php";
         }
 
       ?>

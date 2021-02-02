@@ -2,11 +2,9 @@
 date_default_timezone_set ("Asia/Taipei");
 session_start();
 
-$User=new DB('user');
-$News=new DB('news');
-$Que=new DB('que');
-$Total=new DB('total');
-$Log=new DB('log');
+
+
+
 
 class DB{
   protected $dsn="mysql:host=localhost;dbname=db02;charset=utf8";
@@ -76,21 +74,48 @@ class DB{
     return $this->pdo->exec($sql);
   }
   function save($arr){
-    if(is_array($arr['id'])){
+    //update
+    if(isset($arr['id'])){
       foreach($arr as $key => $value){
-        $tmp[]=sprintf("`%s`='%s'",$key,$value);
+      $tmp[]=sprintf("`%s`='%s'",$key,$value);
       }
-      $sql=" update $this->table set ".implode(',',$tmp)." where `id`='{$arr['id']}'";
+      $sql="update $this->table set".implode(',',$tmp)." where `id`='{$arr['id']}'";
     }else{
-      $sql=" insert into $this->table (`".implode("`,`",array_keys($arr))."`) values('".implode("','",$arr)."')";
+      // insert
+      $sql="insert into $this->table (`".implode("`,`",array_keys($arr))."`) values('".implode("','",$arr)."')";
     }
     return $this->pdo->exec($sql);
-    }
+  }
   function q($sql){
     return $this->pdo->query($sql)->fetchAll();
   }
 }
 function to($url){
   header("location:".$url);
+}
+
+$User=new DB('user');
+$News=new DB('news');
+$Que=new DB('que');
+$Total=new DB('total');
+$Log=new DB('log');
+
+$chk=$Total->find(['date'=>date("Y-m-d")]);
+
+if(empty($chk) && empty($_SESSION['total'])){
+    //沒有今天的資料,也沒有session  今天頭香 需要新增今日資料,
+    $Total->save(["date"=>date("Y-m-d"),"total"=>1]);
+    $_SESSION['total']=1;
+
+}else if(empty($chk) && !empty($_SESSION['total'])){
+    //沒有今天的資料,但是有session 異常情形..需要新增今日資料
+    $Total->save(["date"=>date("Y-m-d"),"total"=>1]);
+
+}else if(!empty($chk) && empty($_SESSION['total'])){
+    //有今天的資料,沒有session  表示是新來 需要加1
+    $chk['total']++;
+    $Total->save($chk);
+    $_SESSION['total']=1;
+
 }
 ?>
