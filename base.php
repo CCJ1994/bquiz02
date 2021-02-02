@@ -94,7 +94,7 @@ function to($url){
   header("location:".$url);
 }
 
-$User=new DB('user');
+$Mem=new DB('mem');
 $News=new DB('news');
 $Que=new DB('que');
 $Total=new DB('total');
