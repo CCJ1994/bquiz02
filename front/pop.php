@@ -6,6 +6,11 @@
 .content{
   display:none;
   position:absolute;
+  background:black;
+  opacity:0.8;
+  color:white;
+  z-index:999;
+  margin:-10px 0;
 }
 .tt{
   position:relative;
@@ -30,20 +35,22 @@
     foreach ($rows as $row) {
     ?>
     <tr>
-      <td class="title"><?=$row['title'];?></td>
-      <td>
-      <div class="tt">
+      <td class="title">
+        <?=$row['title'];?>
+      </td>
+      <td class="tt">
+      
         <div class="tle"><?=mb_substr($row['text'],0,20,'utf8')."...";?></div>
         <div class="content">
-        <div><?=$row['text'];?></div>
+          <div style="color:#11a8c7;"><?=$row['title'];?></div>
           <div>
             <?=nl2br($row['text'])."...";?>
           </div>
         </div>
-      </div>
+      
       </td>
       <td>
-      <span id="vie<?=$row['id']?>"><?=$row['good'];?></span>個人說<img src="icon/02B03.jpg" width="20">
+      <span id="vie<?=$row['id']?>"><?=$row['good'];?></span>個人說<img src="icon/02B03.jpg" width="20">-
       <?php
       if(!empty($_SESSION['login'])){
         $chk=$Log->count(['acc'=>$_SESSION['login'],'news'=>$row['id']]);
@@ -80,7 +87,6 @@
 <script>
   $(".title").hover(function(){
     $(this).next().children('.content').toggle();
-    console.log( $(this).next().children('.content'))
   })
   $(".tt").hover(function() {
   $(this).children('.content').toggle();
