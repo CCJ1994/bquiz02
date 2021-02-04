@@ -72,14 +72,14 @@
   <div>
   <?php
   if(($now-1)>0){
-    echo "<a href='?do=news&p=".($now-1)."'> < </a>";
+    echo "<a href='?do=pop&p=".($now-1)."'> < </a>";
   }
   for ($i=1; $i <=$pages; $i++) { 
     $size=($i==$now)?"24px":"18px";
-    echo "<a href='?do=news&p=$i' style='font-size:$size;'> $i </a>";
+    echo "<a href='?do=pop&p=$i' style='font-size:$size;'> $i </a>";
   }
   if(($now+1)<=$pages){
-    echo "<a href='?do=news&p=".($now+1)."'> > </a>";
+    echo "<a href='?do=pop&p=".($now+1)."'> > </a>";
   }
   ?>
   </div>
