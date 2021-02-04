@@ -31,7 +31,7 @@
     $pages=ceil($total/$div);
     $now=(!empty($_GET['p']))?$_GET['p']:1;
     $start=($now-1)*$div;
-    $rows=$News->all(['sh'=>1],"limit $start,$div");
+    $rows=$News->all(['sh'=>1]," order by good desc limit $start,$div");
     foreach ($rows as $row) {
     ?>
     <tr>
