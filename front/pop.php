@@ -38,11 +38,11 @@
         $chk=$Log->count(['acc'=>$_SESSION['login'],'news'=>$row['id']]);
         if($chk){
           ?>
-          <a href="#" id="good<?=$row['id'];?>" onclick="good('<?=$row['id'];?>','<?=$_SESSION['login'];?>','2')">-收回讚</a>
+          <a href="#" id="good<?=$row['id'];?>" onclick="good('<?=$row['id'];?>','<?=$_SESSION['login'];?>','2')">收回讚</a>
       <?php
         }else{
           ?>
-          <a href="#" id="good<?=$row['id'];?>" onclick="good('<?=$row['id'];?>','<?=$_SESSION['login'];?>','1')">-讚</a>
+          <a href="#" id="good<?=$row['id'];?>" onclick="good('<?=$row['id'];?>','<?=$_SESSION['login'];?>','1')">讚</a>
           <?php
         }
       }
