@@ -5,6 +5,10 @@
 }
 .content{
   display:none;
+  position:absolute;
+}
+.tt{
+  position:relative;
 }
 </style>
 
@@ -28,8 +32,15 @@
     <tr>
       <td class="title"><?=$row['title'];?></td>
       <td>
+      <div class="tt">
         <div class="tle"><?=mb_substr($row['text'],0,20,'utf8')."...";?></div>
-        <div class="content"><?=nl2br($row['text'])."...";?></div>
+        <div class="content">
+        <div><?=$row['text'];?></div>
+          <div>
+            <?=nl2br($row['text'])."...";?>
+          </div>
+        </div>
+      </div>
       </td>
       <td>
       <span id="vie<?=$row['id']?>"><?=$row['good'];?></span>個人說<img src="icon/02B03.jpg" width="20">
@@ -67,8 +78,11 @@
   </div>
 </fieldset>
 <script>
-  $(".title").on('click',function(){
-    $(this).next().children('.tle').toggle();
+  $(".title").hover(function(){
     $(this).next().children('.content').toggle();
+    console.log( $(this).next().children('.content'))
   })
+  $(".tt").hover(function() {
+  $(this).children('.content').toggle();
+})
 </script>
