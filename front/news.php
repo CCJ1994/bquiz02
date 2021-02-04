@@ -1,6 +1,7 @@
 <style>
 .title{
   cursor:pointer;
+  background:lightgrey;
 }
 .content{
   display:none;
@@ -15,7 +16,7 @@
       <td >內容</td>
     </tr>
     <?php
-    $total=$News->count();
+    $total=$News->count(['sh'=>1]);
     $div=5;
     $pages=ceil($total/$div);
     $now=(!empty($_GET['p']))?$_GET['p']:1;
