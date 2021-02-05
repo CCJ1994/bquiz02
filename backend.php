@@ -27,7 +27,7 @@
     </div>
     <div id="mm">
       <div class="hal" id="lef">
-        <a class="blo" href="?do=main">回首頁</a>
+        <a class="blo" href="?do=mem">帳號管理</a>
         <a class="blo" href="?do=news">最新文章</a>
         <a class="blo" href="?do=que">問卷調查</a>
       </div>
@@ -50,13 +50,14 @@
             <?php }?>
           </span>
           <div class="">
+          
           <?php
           $do=(isset($_GET['do'])?$_GET['do']:'main.php');
-          $file="./front/".$do.".php";
+          $file="./backend/".$do.".php";
           if(file_exists($file)){
             include_once $file;
           }else{
-            include_once("./front/main.php");
+            include_once("./backend/main.php");
           }
           ?>
           </div>
