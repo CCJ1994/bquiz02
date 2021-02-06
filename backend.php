@@ -33,7 +33,7 @@ include_once "base.php"
     </div>
     <div id="mm">
       <div class="hal" id="lef">
-        <a class="blo" href="?do=main">回首頁</a>
+        <a class="blo" href="?do=admin">帳號管理</a>
         <a class="blo" href="?do=news">最新文章</a>
         <a class="blo" href="?do=que">問卷調查</a>
       </div>

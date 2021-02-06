@@ -15,7 +15,7 @@
   </tr>
   <tr>
     <td class="bg">密碼：</td>
-    <td><input type="text" name="pw" id="pw"></td>
+    <td><input type="password" name="pw" id="pw"></td>
   </tr>
   <tr>
   <td>
