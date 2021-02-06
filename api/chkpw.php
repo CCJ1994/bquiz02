@@ -1,16 +1,8 @@
 <?php
 include_once "../base.php";
-
-$acc=$_POST['acc'];
-$pw=$_POST['pw'];
-
-$chk=$Mem->count(['acc'=>$acc,'pw'=>$pw]);
-
+$chk=$Mem->find(['acc'=>$_POST['acc'],'pw'=>$_POST['pw']]);
 if($chk){
-  echo 1;
-  $_SESSION['login']=$acc;
-}else {
-  echo 0;
+  echo "1";
+  $_SESSION['login']=$_POST['acc'];
 }
-
 ?>

@@ -1,12 +1,7 @@
 <?php
 include_once "../base.php";
-
-$acc=$_POST['acc'];
-$chk=$Mem->count(['acc'=>$acc]);
+$chk=$Mem->find(['acc'=>$_POST['acc']]);
 if($chk){
-  echo 1;
-}else {
-  echo 0;
+  echo "1";
 }
-
 ?>
