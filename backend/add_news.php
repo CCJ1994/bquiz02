@@ -1,3 +1,4 @@
+<form action="api/add_news.php" method="post">
 <fieldset class="">
 <legend>新增文章</legend>
 <table> 
@@ -19,12 +20,10 @@
     <td>文章內容</td>
     <td><textarea name="text" id="" cols="30" rows="10"></textarea></td>
   </tr>
-  <tr>
-    <td></td>
-  </tr>
 </table>
 <div class="ct">
   <input type="submit" value="新增">
   <input type="reset" value="重置">
 </div>
 </fieldset>
+</form>

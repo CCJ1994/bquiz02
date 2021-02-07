@@ -7,7 +7,7 @@
 <form action="api/edit_news.php" method="post">
   <fieldset>
   <legend>最新文章管理</legend>
-  <div><input type="button" onclick="op('#cover','#cvr','backend/add_news.php')" value="新增文章"></div>
+  <div><a href="?do=add_news"><button type="button">新增文章</button></a></div>
   <table class="ct">
     <tr>
       <td width="20%">編號</td>
@@ -61,12 +61,4 @@
       </tbody>
   </table>
   </fieldset>
-</form>
-<form action="api/add_news.php" method="post">
-<div id="cover" style="display:none; ">
-	<div id="coverr">
-    	<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl('#cover')">X</a>
-        <div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
-    </div>
-</div>
 </form>
