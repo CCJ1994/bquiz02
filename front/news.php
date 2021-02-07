@@ -1,7 +1,6 @@
 <style>
 .bg{
   background:lightgrey;
-  width:40%;
   padding:5px 10px;
   cursor:pointer;
 }
@@ -11,11 +10,12 @@
 </style>
 <fieldset>
   <legend>目前位置：首頁 > 最新文章區</legend>
-  <table width="80%" >
+  <table width="100%" >
     <thead>
       <tr class="ct">
-        <th>標題</th>
-        <th>內容</th>
+        <th width="30%">標題</th>
+        <th width="60%">內容</th>
+        <th width="10%"></th>
       </tr>
     </thead>
     <tbody>
@@ -33,7 +33,16 @@
         <td>
           <div class="tit"><?=mb_substr($new['text'],0,20,"utf8");?>...</div>
           <div class="content"><?=$new['text'];?></div>
-
+        </td>
+        <td>
+        <?php if(!empty($_SESSION['login'])){ 
+          $chk=$Log->count(['acc'=>$_SESSION['login'],'news'=>$new['id']]);
+          if($chk){  ?>
+          <a href="#" id="good<?=$new['id']?>" onclick="good('<?=$new['id'];?>','<?=$_SESSION['login'];?>','2')" >收回讚</a>
+          <?php  }else{ ?>
+          <a href="#" id="good<?=$new['id']?>" onclick="good('<?=$new['id'];?>','<?=$_SESSION['login'];?>','1')" >讚</a>
+          <?php  }  
+          }?>
         </td>
       </tr>
 
