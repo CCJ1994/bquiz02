@@ -21,12 +21,11 @@
       <td><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
       <input type="hidden" name="id[]" value="<?=$row['id'];?>">
     </tr>
+    <?php } ?>
     <tr>
       <td colspan="4">
 
-        <?php 
-      } 
-      if(($now-1)>0){?>
+      <?php if(($now-1)>0){?>
         <a href="backend.php?do=<?=$do;?>&p=<?=$now-1;?>">
           < </a>
             <?php }

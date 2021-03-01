@@ -1,4 +1,11 @@
-<div>現在位置 : 首頁 > 分類網誌  <span id="po"></span></div>
+<style>
+.nav{
+  cursor:pointer;
+  color:blue;
+  margin:10px 0;
+}
+</style>
+<div>現在位置 : 首頁 > 分類網誌 > <span id="po"></span></div>
   <fieldset style="display:inline-block;width:13%;">
     <legend>分類網誌</legend>
     <div id="t1" onclick="nav(this)" class="nav">健康新知</div>

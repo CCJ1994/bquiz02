@@ -2,7 +2,12 @@
 date_default_timezone_set("Asia/Taipei");
 
 session_start();
-
+$tstr=[
+  '1'=>'健康新知',
+  '2'=>'菸害防治',
+  '3'=>'癌症防治',
+  '4'=>'慢性病防治'
+];
 class DB{
   protected $dsn="mysql:host=localhost;dbname=pra_db02;charset=utf8";
   protected $pdo="";
