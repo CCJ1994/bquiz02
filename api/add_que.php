@@ -1,11 +1,12 @@
 <?php
 include_once "../base.php";
-$sub=$_POST['subject'];
+$Que->save(['text'=>$_POST['subject'],'subject'=>0,'count'=>0]);
 
-$Que->save(['text'=>$sub,'subject'=>'0','count'=>0]);
-$main=$Que->find(['text'=>$sub]);
+$main=$Que->find(['text'=>$_POST['subject']]);
 foreach ($_POST['option'] as $key => $option) {
-  $Que->save(['text'=>$option,'subject'=>$main['id'],'count'=>0]);
+  if(!empty($option)){
+    $Que->save(['text'=>$option,'subject'=>$main['id'],'count'=>0]);
+  }
 }
 to("../backend.php?do=que");
 ?>
