@@ -8,7 +8,7 @@
 .content {
   display: none;
   z-index:999;
-  position:fixed;
+  position:absolute;
   color:white;
   background:#999;
   width:400px;
